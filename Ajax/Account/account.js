@@ -57,53 +57,54 @@ function checkUsername(username) {
         }
     })
 }
-    function login() {
-        let username = $("#username").val()
-        let password = $("#password").val()
-        let account = {
-            username: username,
-            password: password,
-        }
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            type: "POST",
-            url: "http://localhost:8080/login",
-            data: JSON.stringify(account),
-            success: function (data) {
-                console.log(data)
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("userToken", JSON.stringify(data) );
-                window.location.href = "../index.html"
-                hienthiten();
-            },
-            error: function () {
-                let n
-                let username = $("#username").val()
-                let password = $("#password").val()
-                if (username === "") {
-                    n = '<p style="color: red">**Please enter username!</p>'
-                    document.getElementById("usernameNotification").innerHTML = n
-                    document.getElementById("passwordNotification").innerHTML = ""
-                } else if (password === "") {
-                    n = '<p style="color: red">**Please enter password!</p>'
-                    document.getElementById("usernameNotification").innerHTML = ""
-                    document.getElementById("passwordNotification").innerHTML = n
-                } else {
-                    let n = '<p style="color: red">**Wrong account or password!</p>'
-                    document.getElementById("usernameNotification").innerHTML = n
-                    document.getElementById("passwordNotification").innerHTML = ""
-                }
+
+function login() {
+    let username = $("#username").val()
+    let password = $("#password").val()
+    let account = {
+        username: username,
+        password: password,
+    }
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        type: "POST",
+        url: "http://localhost:8080/login",
+        data: JSON.stringify(account),
+        success: function (data) {
+            console.log(data)
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userToken", JSON.stringify(data));
+            window.location.href = "../index.html"
+            hienthiten();
+        },
+        error: function () {
+            let n
+            let username = $("#username").val()
+            let password = $("#password").val()
+            if (username === "") {
+                n = '<p style="color: red">**Please enter username!</p>'
+                document.getElementById("usernameNotification").innerHTML = n
+                document.getElementById("passwordNotification").innerHTML = ""
+            } else if (password === "") {
+                n = '<p style="color: red">**Please enter password!</p>'
+                document.getElementById("usernameNotification").innerHTML = ""
+                document.getElementById("passwordNotification").innerHTML = n
+            } else {
+                let n = '<p style="color: red">**Wrong account or password!</p>'
+                document.getElementById("usernameNotification").innerHTML = n
+                document.getElementById("passwordNotification").innerHTML = ""
             }
-        })
-        event.preventDefault();
+        }
+    })
+    event.preventDefault();
 }
 
 function hienthiten() {
     if (localStorage.getItem("token") != null) {
-     let account = localStorage.getItem("userToken")
+        let account = localStorage.getItem("userToken")
         document.getElementById("fullname").innerText;
     }
 }
