@@ -1178,7 +1178,6 @@ section
 .sidebar_categories li a
 {
 	font-size: 14px;
-	line-height: 40px;
 	color: #51545f;
 }
 .sidebar_categories li a:hover
@@ -1297,6 +1296,7 @@ section
 
 .product-grid
 {
+	height: 100%;
 	width: 100%;
 	margin-top: 57px;
 }
