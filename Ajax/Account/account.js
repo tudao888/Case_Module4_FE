@@ -27,6 +27,12 @@ function create() {
         data: JSON.stringify(account),
         //xử lý khi thành công
         success: function (data) {
+           document.getElementById("usernameCreate").value = "";
+           document.getElementById("passwordCreate").value= "";
+           document.getElementById("fullNameCreate").value= "";
+           document.getElementById("phoneCreate").value= "";
+           document.getElementById("addressCreate").value= "";
+           document.getElementById("imgCreate").value= "";
             alert("Thành công");
             show();
         },
@@ -38,15 +44,14 @@ function create() {
 
 function checkUsername(username) {
     $.ajax({
-        type: "Post",
+        type: "Get",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem("token")
 
         },
-        url: "http://localhost:8080/username/check",
-        data: JSON.stringify(username),
+        url: "http://localhost:8080/checkUsername/" +username,
         //xử lý khi thành công
         success: function (data) {
             console.log(data)
@@ -104,7 +109,9 @@ function login() {
 
 function hienthiten() {
     if (localStorage.getItem("token") != null) {
-        let account = localStorage.getItem("userToken")
-        document.getElementById("fullname").innerText;
+         let account = JSON.parse(localStorage.getItem("userToken"));
+        document.getElementById("fullname").innerText = "Hello   " +account.fullname ;
     }
 }
+hienthiten();
+
