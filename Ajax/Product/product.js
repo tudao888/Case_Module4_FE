@@ -117,7 +117,6 @@ function showDetailPage(id){
 
 }
 function showProductById(id) {
-    alert(id)
     $.ajax({
         type: "GET",
         headers: {
@@ -139,7 +138,7 @@ function showProductById(id) {
  </div>
  <div class="col-lg-9 image_col order-lg-2 order-1">
  <div class="single_product_image">
- <div class="single_product_image_background" style="background-image:url('/images/single_2.jpg')"></div>
+ <div class="single_product_image_background" style="background-image:url(${product.img})"></div>
  </div>
  </div>
  </div>
@@ -170,6 +169,27 @@ function showProductById(id) {
 
             document.getElementById("showProduct").innerHTML = str;
 
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+
+function getAllComment(id) {
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("token")
+        },
+        url: "http://localhost:8080/products/" + id,
+        //xử lý khi thành công
+        success: function (product) {
+            console.log(product)
+            let str = '';
+            console.log(product)
         },
         error: function (err) {
             console.log(err)

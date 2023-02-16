@@ -36,10 +36,7 @@
 						<div class="top_nav_right">
 							<ul class="top_nav_menu">
 								<li class="account">
-									<a href="#">
-										<p id="fullname">My Account</p>
-										<i class="fa fa-angle-down"></i>
-									</a>
+									<p style="padding-top: 10px; font-size: 20px" id="username" onclick="showAccountDetails(document.getElementById('username').innerText)"></p>
 									<ul class="account_selection">
 										<li><a href="form-1/login_register.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
 										<li><a href="form-1/login_register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
@@ -371,8 +368,8 @@
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="js/custom.js"></script>
-<script src="../Ajax/Account/account.js"></script>
 <script src="Ajax/Product/product.js"></script>
+<script src="Ajax/Account/account.js"></script>
 </body>
 
 </html>

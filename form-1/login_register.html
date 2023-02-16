@@ -124,6 +124,7 @@
 				                        <div class="form-group">
 				                        	<input type="text"  placeholder="FullName..." class="form-email form-control" id="fullNameCreate" required>
 				                        </div>
+
 										<div class="form-group">
 											<input type="number"placeholder="Phone..." class="form-email form-control" id="phoneCreate" required>
 										</div>
@@ -132,9 +133,10 @@
 										</div>
 										<div class="form-group">
 											<label>Image</label>
-											<input type="file" class="form-email form-control" id="imgCreate" required>
+											<input type="file" id="imgCreate" onchange="showImg()" required>
+											<img id="blah" src="#" alt="your image" height="270" width="300" />
 										</div>
-				                        <button type="submit" class="btn" onclick="create()">Sign me up!</button>
+				                        <button type="submit" class="btn" onclick="upImg()" >Sign me up!</button>
 				                    </form>
 			                    </div>
                         	</div>
